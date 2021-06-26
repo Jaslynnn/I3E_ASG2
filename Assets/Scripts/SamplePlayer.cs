@@ -34,10 +34,18 @@ public class SamplePlayer : MonoBehaviour
 
     private string nextState;
 
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         nextState = "Idle";
+        
     }
 
     // Update is called once per frame
@@ -84,6 +92,12 @@ public class SamplePlayer : MonoBehaviour
             {
                 nextState = "Idle";
             }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                TakeDamage(10);
+            }
+
             yield return null;
         }
         
@@ -135,6 +149,7 @@ private void CheckRotation()
         
 
             transform.position = newPos;
+         
 
             return false;
         }
@@ -147,5 +162,11 @@ private void CheckRotation()
         }
 
 
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
     }
 }
