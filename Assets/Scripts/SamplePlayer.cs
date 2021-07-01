@@ -12,6 +12,7 @@ Date Created: 09/06/2021
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SamplePlayer : MonoBehaviour
 {
@@ -38,6 +39,9 @@ public class SamplePlayer : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
 
+    public bool StartingGame;
+    public bool GameStarted;
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,18 +49,26 @@ public class SamplePlayer : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         nextState = "Idle";
-        
-    }
+        StartingGame = false;
+        GameStarted = false;
+
+
+}
 
     // Update is called once per frame
     void Update()
     {
-        if(nextState != currentState)
+        if (StartingGame == true)
         {
-            SwitchState();
+            GameStarted = true;
+            StartGame();
+
         }
 
-        CheckRotation();
+        if (GameStarted == false) 
+        {
+            StartingGame = false;
+        }
     }
 
     /// <summary>
@@ -93,18 +105,44 @@ public class SamplePlayer : MonoBehaviour
                 nextState = "Idle";
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                TakeDamage(10);
-            }
-
             yield return null;
         }
         
     }
 
+    public void StartGame()
+    {
+        if (nextState != currentState)
+        {
+            SwitchState();
+        }
 
-private void CheckRotation()
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(10);
+        }
+
+        CheckRotation();
+    }
+
+    public void PauseGame()
+    {
+        Debug.Log("The game has been paused");
+    }
+
+    //Create bool that allows the game to start by activating the start game
+    public void TapToStart()
+    {
+        StartingGame = true;
+    }
+
+    //Create bool that allows the game to pause when the menu button is clicked
+    public void TapToPause()
+    {
+        StartingGame = false;
+    }
+
+    private void CheckRotation()
     {
        
 
