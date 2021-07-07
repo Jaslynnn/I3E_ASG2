@@ -1071,6 +1071,36 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!1 &517952710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e03d8a0969570e40875974f0a3a4c61, type: 3}
+  m_PrefabInstance: {fileID: 562497418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &517952711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517952710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098998e6940a70d418068d80c9df77e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &517952712
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517952710}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4.09, z: 1}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1001 &562497418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1096,15 +1126,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e03d8a0969570e40875974f0a3a4c61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2735.7
+      value: 2837.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e03d8a0969570e40875974f0a3a4c61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e03d8a0969570e40875974f0a3a4c61, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1263.2
+      value: -1204.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e03d8a0969570e40875974f0a3a4c61, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2240,8 +2270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8874eade0a598324bbca53c840a3dfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 60
-  rotationSpeed: 500
+  moveSpeed: 30
+  rotationSpeed: 2000
   playerCamera: {fileID: 1699146529}
   maxHealth: 100
   currentHealth: 0
@@ -2335,10 +2365,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 930962917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7dd7b6b167a98346be49ff326914ed8, type: 3}
+  m_Script: {fileID: 11500000, guid: 952ce683af2931c4ba0c34d74586c886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 50
   range: 100
   fpsCam: {fileID: 1699146529}
 --- !u!1 &974190821
@@ -2959,11 +2989,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1478909248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9328eb2ae7b6d964f91ad183281d6d6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 69fb73ba2e497f746a8a0b9c63888a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  maxHealth: 100
 --- !u!65 &1478909254
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2975,8 +3004,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &1478909255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478909248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c97c5db74bae6c4ba1825805d0ee831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1494761476
 GameObject:
   m_ObjectHideFlags: 0

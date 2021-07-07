@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class PlayerAttk : MonoBehaviour
 {
     public float damage = 10f;
     public float range = 100f;
