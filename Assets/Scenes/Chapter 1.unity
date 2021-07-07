@@ -1395,15 +1395,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85aa00bdcc8aa82498c838e182e93baf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00048828125
+      value: -101.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85aa00bdcc8aa82498c838e182e93baf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.4
+      value: -32.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85aa00bdcc8aa82498c838e182e93baf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00036621094
+      value: -40.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85aa00bdcc8aa82498c838e182e93baf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2934,6 +2934,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1478909253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478909248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9328eb2ae7b6d964f91ad183281d6d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
 --- !u!1 &1494761476
 GameObject:
   m_ObjectHideFlags: 0
