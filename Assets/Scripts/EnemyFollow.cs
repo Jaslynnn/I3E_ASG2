@@ -16,6 +16,16 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemy.SetDestination(Player.position);
+       
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "EnemyZone")
+        {
+            enemy.SetDestination(Player.position);
+        }
+    }
+
+
 }

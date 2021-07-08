@@ -13,6 +13,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
+
 
 public class SamplePlayer : MonoBehaviour
 {
@@ -41,6 +43,16 @@ public class SamplePlayer : MonoBehaviour
 
     public bool StartingGame;
     public bool GameStarted;
+
+    // When Player walks into trigger, the enemy will chase it
+    public Transform Player;
+    public NavMeshAgent enemy;
+    public Transform target1;
+    public Transform target2;
+    public Transform target3;
+    public Transform target4;
+
+    Vector3 destination; 
 
 
     // Start is called before the first frame update
@@ -207,4 +219,26 @@ public class SamplePlayer : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "EnemyZone")
+        {
+            enemy.SetDestination(Player.position);
+            
+        }
+        else
+        {
+            enemy.SetDestination(target1.position);
+        }
+
+        if (other.tag == "Enemy")
+        {
+            enemy.isStopped = true;
+            TakeDamage(1);
+        }
+    }
+
+
+
+
 }
