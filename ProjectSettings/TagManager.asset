@@ -6,6 +6,8 @@ TagManager:
   tags:
   - EnemyZone
   - Enemy
+  - Target2
+  - Target1
   layers:
   - Default
   - TransparentFX

@@ -3,9 +3,10 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public float health = 50f;
-
+    public Animator animator;
     public void TakeDamage(float amount)
     {
+        animator.SetBool("BatGotHit", true);
         health -= amount;
         if (health <= 0f)
         {
@@ -15,6 +16,6 @@ public class Target : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        animator.SetBool("BatDead", true);
     }
 }
