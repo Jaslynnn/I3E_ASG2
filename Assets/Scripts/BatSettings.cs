@@ -29,5 +29,16 @@ public class BatSettings : MonoBehaviour
         animator.SetInteger("HitCount", HitCount);
     }
 
+    public void BatAttack()
+    {
+        animator.SetTrigger("BatAttacking");
+        
+    }
+    public void BatFlying()
+    {
+        animator.SetBool("BatReturn",true);
+
+    }
+
     //If player is hit, hit count go up and hit = true
 }

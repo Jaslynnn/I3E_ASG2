@@ -27,6 +27,7 @@ public class PlayerAttk : MonoBehaviour
             if(target != null)
             {
                 target.TakeDamage(damage);
+                
             }
         }
     }

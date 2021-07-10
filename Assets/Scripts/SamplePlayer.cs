@@ -13,6 +13,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
+
+
 
 public class SamplePlayer : MonoBehaviour
 {
@@ -42,6 +45,12 @@ public class SamplePlayer : MonoBehaviour
     public bool StartingGame;
     public bool GameStarted;
 
+    // When Player walks into trigger, the enemy will chase it
+    public BatSettings batSettings;
+    public Transform Player;
+    public NavMeshAgent enemy;
+    public bool BatAttack;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -207,4 +216,38 @@ public class SamplePlayer : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "EnemyZone")
+        {
+            batSettings.BatAttack();
+
+        }
+
+
+    }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "EnemyZone")
+        {
+            enemy.SetDestination(Player.position);
+            batSettings.BatFlying();
+
+
+        }
+
+
+        if (other.tag == "Enemy")
+        {
+            enemy.isStopped = true;
+            TakeDamage(1);
+        }
+    }
+
+
+
+
 }
