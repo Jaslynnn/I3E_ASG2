@@ -20,15 +20,35 @@ public class QuestText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ChangeQuestingText1();
+        ChangeQuestingText2();
+        ChangeQuestingText3();
+        ChangeQuestingCount();
     }
 
-    public void ChangeQuestingText()
+    public void done()
     {
-        QuestingText1.GetComponent<Text>().text = "Shoot down a bat" + Status;
-        QuestingText2.GetComponent<Text>().text = "Find a gun" + Status;
-        QuestingText3.GetComponent<Text>().text = "Find a portal" + Status;
-        QuestCountText.GetComponent<Text>().text = "These are your current number of quests:" + QuestCount;
+        Status = "done";
+    }
+    public void ChangeQuestingText1()
+    {
+        QuestingText1.GetComponent<Text>().text = "Shoot down 1 bat : " + Status;
+      
+    }
+    public void ChangeQuestingText2()
+    {
+        QuestingText2.GetComponent<Text>().text = "Find a gun : " + Status;
+
+    }
+    public void ChangeQuestingText3()
+    {
+        QuestingText3.GetComponent<Text>().text = "Find a portal : " + Status;
+ 
+
+    }
+    public void ChangeQuestingCount()
+    {
+         QuestCountText.GetComponent<Text>().text = "These are your current number of quests : " + QuestCount;
 
     }
 }

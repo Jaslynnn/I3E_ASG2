@@ -7,6 +7,7 @@ public class BatSettings : MonoBehaviour
     public Animator animator;
     public int HitCount;
     public bool Hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class BatSettings : MonoBehaviour
         animator.SetBool("BatReturn",true);
 
     }
+
 
     //If player is hit, hit count go up and hit = true
 }

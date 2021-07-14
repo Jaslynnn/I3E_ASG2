@@ -264,6 +264,13 @@ public class SamplePlayer : MonoBehaviour
 
 
         }
+        if (other.tag != "EnemyZone")
+        {
+            enemy.SetDestination(Player.position);
+            batSettings.BatFlying();
+
+
+        }
 
 
         if (other.tag == "Enemy")
