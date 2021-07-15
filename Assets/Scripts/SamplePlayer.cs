@@ -21,35 +21,41 @@ public class SamplePlayer : MonoBehaviour
 {
     /// <summary>
     /// The distance this player will travel per second.
-    /// </summary>
+
     [SerializeField]
     private float moveSpeed;
 
     [SerializeField]
     private float rotationSpeed;
 
-    /// <summary>
     /// The camera attached to the player model.
-    /// Should be dragged in from Inspector.
-    /// </summary>
+   
     public Camera playerCamera;
 
     private string currentState;
 
     private string nextState;
 
+    /// <summary>
+    /// Health bar
+    /// </summary>
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
 
+    /// <summary>
+    /// Ui that makes the game start and stop
+    /// </summary>
     public bool StartingGame;
     public bool GameStarted;
+    public bool Ui;
 
     // When Player walks into trigger, the enemy will chase it
     public BatSettings batSettings;
     public Transform Player;
     public NavMeshAgent enemy;
     public bool BatAttack;
+    
     
 
     // Start is called before the first frame update
@@ -60,9 +66,10 @@ public class SamplePlayer : MonoBehaviour
         nextState = "Idle";
         StartingGame = false;
         GameStarted = false;
+        Ui = true;
 
 
-}
+    }
 
     // Update is called once per frame
     void Update()
@@ -75,9 +82,27 @@ public class SamplePlayer : MonoBehaviour
         }
 
         if (GameStarted == false) 
+
         {
+            if (Ui == false)
+            {
+                StartingGame = false;
+            }
+
             StartingGame = false;
         }
+
+        if( Ui == true )
+        { 
+            StartingGame = false;
+        }
+
+        if (Ui == false)
+        {
+            StartingGame = true;
+        }
+
+
     }
 
     /// <summary>
@@ -142,13 +167,14 @@ public class SamplePlayer : MonoBehaviour
     //Create bool that allows the game to start by activating the start game
     public void TapToStart()
     {
-        StartingGame = true;
+        Ui = false;
     }
 
     //Create bool that allows the game to pause when the menu button is clicked
     public void TapToPause()
-    {
-        StartingGame = false;
+    {   
+        Ui = true;
+        
     }
 
     private void CheckRotation()
@@ -232,6 +258,13 @@ public class SamplePlayer : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "EnemyZone")
+        {
+            enemy.SetDestination(Player.position);
+            batSettings.BatFlying();
+
+
+        }
+        if (other.tag != "EnemyZone")
         {
             enemy.SetDestination(Player.position);
             batSettings.BatFlying();
