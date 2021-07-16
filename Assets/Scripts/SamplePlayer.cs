@@ -42,6 +42,9 @@ public class SamplePlayer : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
+    public float timeInvincible = 1.0f;
+    bool isInvincible;
+    float invincibleTimer;
 
     /// <summary>
     /// Ui that makes the game start and stop
@@ -92,7 +95,7 @@ public class SamplePlayer : MonoBehaviour
             StartingGame = false;
         }
 
-        if( Ui == true )
+        if ( Ui == true )
         { 
             StartingGame = false;
         }
@@ -100,6 +103,13 @@ public class SamplePlayer : MonoBehaviour
         if (Ui == false)
         {
             StartingGame = true;
+        }
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+                isInvincible = false;
         }
 
 
@@ -237,8 +247,16 @@ public class SamplePlayer : MonoBehaviour
 
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
+        if (damage > 0)
+        {
+            if (isInvincible)
+                return;
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+        }
+
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
