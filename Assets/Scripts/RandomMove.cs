@@ -10,19 +10,29 @@ public class RandomMove : MonoBehaviour
     public float timeForNewPath;
 
     bool inCoRoutine;
+    bool RandomMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        RandomMovement = true;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (!inCoRoutine)
+        if(RandomMovement == true)
+        {
+            if (!inCoRoutine)
             StartCoroutine(DoSomething());
+
+        }
+
+        
+       
+
     }
 
     Vector3 getNewRandomPosition()
@@ -46,6 +56,12 @@ public class RandomMove : MonoBehaviour
     void GetNewPath()
     {
         navMeshAgent.SetDestination(getNewRandomPosition());
+    }
+
+
+    public void StopRandomMovement()
+    {
+        RandomMovement = false;
     }
 
 }

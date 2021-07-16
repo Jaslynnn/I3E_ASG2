@@ -53,8 +53,9 @@ public class SamplePlayer : MonoBehaviour
     public bool GameStarted;
     public bool Ui;
 
-    // When Player walks into trigger, the enemy will chase it
+    // When Player walks into trigger,the random movement will stop and the enemy will chase it
     public BatSettings batSettings;
+    public RandomMove randomMovement;
     public Transform Player;
     public NavMeshAgent enemy;
     public bool BatAttack;
@@ -277,23 +278,17 @@ public class SamplePlayer : MonoBehaviour
     {
         if (other.tag == "EnemyZone")
         {
+            randomMovement.StopRandomMovement();
             enemy.SetDestination(Player.position);
             batSettings.BatFlying();
 
 
         }
-        if (other.tag != "EnemyZone")
-        {
-            enemy.SetDestination(Player.position);
-            batSettings.BatFlying();
 
-
-        }
 
 
         if (other.tag == "Enemy")
         {
-            enemy.isStopped = true;
             TakeDamage(1);
         }
     }

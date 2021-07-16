@@ -14,7 +14,7 @@ public class Target : MonoBehaviour
     public void TakeDamage(float amount)
     {
         animator.SetBool("BatGotHit", true);
-        Debug.Log("I have been hit");
+        ///deduct health
         health -= amount;
         animator.SetBool("BatGotHit", false);
         if (health <= 0f)
@@ -25,7 +25,7 @@ public class Target : MonoBehaviour
     }
 
     public void Update()
-    {
+    {/// Notify the player that the Bats health is decreasing so that they know that they have to keep on shooting
         ChangeBatStatusText();
     }
     void Die()
@@ -33,8 +33,11 @@ public class Target : MonoBehaviour
         animator.SetBool("BatDead", true);
         enemy.isStopped = true;
         BatDeathCount += 1;
+        ///Activate the Quest to change words
         QuestStatus.done();
         Debug.Log("I am dead");
+        /// Change Enemy tag so that the health of the player does not decrease when the player goes over the dead body of the enemy.
+        enemy.tag = "DeadEnemy";
 
 
     }

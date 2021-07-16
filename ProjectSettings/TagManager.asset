@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Target2
   - Target1
+  - DeadEnemy
   layers:
   - Default
   - TransparentFX
