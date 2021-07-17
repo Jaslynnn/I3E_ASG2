@@ -10,8 +10,14 @@ public class QuestText : MonoBehaviour
     public GameObject QuestingText2;
     public GameObject QuestingText3;
     public GameObject QuestCountText;
+
     public int QuestCount;
-    public string Status;
+    public string Status1;
+    public string Status2;
+    public string Status3;
+    public string Status4;
+    public string Status5;
+    public string Status6;
 
     //Bools to indicate levels
     public bool Level1;
@@ -20,8 +26,8 @@ public class QuestText : MonoBehaviour
 
     void Start()
     {
-        Status = "Undone";
-        Level1 = true;
+        Status1 = "Undone";
+        FirstLevel();
     }
 
     // Update is called once per frame
@@ -72,39 +78,43 @@ public class QuestText : MonoBehaviour
         Level1 = false;
     }
 
-    public void done()
+    public void done3()
     {
-        Status = "done";
+        Status3 = "done";
+    }
+    public void done1()
+    {
+        Status1 = "done";
     }
 
     //Level 1 quest
-    public void FindPortalQuest1()
-    {
-        QuestingText3.GetComponent<Text>().text = "Find a portal : " + Status;
- 
-
-    }
     public void ShootSlimeQuest()
     {
-        QuestingText1.GetComponent<Text>().text = "Shoot down 1 bat : " + Status;
+        QuestingText1.GetComponent<Text>().text = "Shoot down 1 Slime : " + Status1;
+
+    }
+    public void FindPortalQuest1()
+    {
+        QuestingText2.GetComponent<Text>().text = "Find a portal : " + Status2;
+ 
 
     }
 
     //Level 2 quest
     public void ShootBatQuest()
     {
-        QuestingText1.GetComponent<Text>().text = "Shoot down 1 slime : " + Status;
+        QuestingText1.GetComponent<Text>().text = "Shoot down 1 Bat : " + Status3;
       
     }
     public void RetrieveIncubator()
     {
-        QuestingText2.GetComponent<Text>().text = "Find the incubator : " + Status;
+        QuestingText2.GetComponent<Text>().text = "Find the incubator : " + Status4;
 
     }
 
     public void FindPortalQuest2()
     {
-        QuestingText3.GetComponent<Text>().text = "Find a portal : " + Status;
+        QuestingText3.GetComponent<Text>().text = "Find a portal : " + Status5;
 
 
     }
@@ -112,7 +122,7 @@ public class QuestText : MonoBehaviour
     //Level 3 quest
     public void KillBossQuest()
     {
-        QuestingText1.GetComponent<Text>().text = "Kill the boss : " + Status;
+        QuestingText1.GetComponent<Text>().text = "Kill the boss : " + Status6;
 
     }
     public void ChangeQuestingCount()

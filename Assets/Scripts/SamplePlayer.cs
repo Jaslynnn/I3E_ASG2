@@ -1,5 +1,5 @@
 /******************************************************************************
-Author: Elyas Chua-Aziz
+Author: Elyas Chua-Aziz, Jaslyn Chen , Kirdesh Kumar
 
 Name of Class: DemoPlayer
 
@@ -53,7 +53,7 @@ public class SamplePlayer : MonoBehaviour
     public bool GameStarted;
     public bool Ui;
 
-    // When Player walks into trigger,the random movement will stop and the enemy will chase it
+    // When Player walks into trigger,the random movement of enemy will stop and the enemy will chase it
     public BatSettings batSettings;
     public RandomMove randomMovement;
     public Transform Player;
@@ -287,7 +287,7 @@ public class SamplePlayer : MonoBehaviour
 
 
 
-        if (other.tag == "Enemy")
+        if (other.tag == "Bat" || other.tag == "Boss")
         {
             TakeDamage(1);
         }

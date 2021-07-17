@@ -8,27 +8,6 @@ public class BatSettings : MonoBehaviour
     public int HitCount;
     public bool Hit;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Hit = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Hit == true)
-        {
-            animator.SetBool("BatHit", true );
-        }
-
-        if (Hit == false)
-        {
-            animator.SetBool("BatHit", true);
-        }
-
-        animator.SetInteger("HitCount", HitCount);
-    }
 
     public void BatAttack()
     {

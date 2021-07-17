@@ -30,8 +30,6 @@ public class RandomMove : MonoBehaviour
 
         }
 
-        
-       
 
     }
 
