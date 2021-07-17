@@ -1,3 +1,10 @@
+/**
+Author: Jaslyn
+Name of Class: QuestText
+Description of Class: Quest UI and quests
+Date Created:  17 july 21
+**/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

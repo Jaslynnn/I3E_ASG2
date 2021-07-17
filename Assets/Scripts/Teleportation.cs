@@ -1,3 +1,10 @@
+/**
+Author:  Jaslyn
+Name of Class: Teleportation
+Description of Class: Teleport the player from one scene to another
+Date Created:  16 july 21
+**/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

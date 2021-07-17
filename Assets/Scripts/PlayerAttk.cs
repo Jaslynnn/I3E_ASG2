@@ -1,3 +1,9 @@
+/**
+Author: Kirdesh
+Name of Class: PlayerAttk
+Description of Class: Player attacking using raycasting
+Date Created: 12 july 21
+**/
 using UnityEngine;
 
 public class PlayerAttk : MonoBehaviour

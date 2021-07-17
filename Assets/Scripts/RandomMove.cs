@@ -1,3 +1,10 @@
+/**
+Author: Kirdesh
+Name of Class: RandomMove
+Description of Class: Allow the enemy to move randomly
+Date Created: 17 july 21
+**/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

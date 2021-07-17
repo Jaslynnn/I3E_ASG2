@@ -1,3 +1,10 @@
+/**
+Author: Kirdesh and Jaslyn
+Name of Class: Target
+Description of Class: Make the enemy lose hp 
+Date Created:  17 july 21
+**/
+
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
