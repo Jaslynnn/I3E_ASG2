@@ -59,6 +59,19 @@ public class SamplePlayer : MonoBehaviour
     public Transform Player;
     public NavMeshAgent enemy;
     public bool BatAttack;
+
+    //When Player walks into the boss area, he gets attacked by the boss
+    public Animator BossAnimation;
+    public NavMeshAgent Boss;
+    public GameObject Incubator;
+    public GameObject Heart;
+    public GameObject DeadText;
+    public GameObject GameEndText;
+    public QuestText ChangeQuestText;
+
+
+    public Teleportation teleport;
+
     
     
 
@@ -113,7 +126,11 @@ public class SamplePlayer : MonoBehaviour
                 isInvincible = false;
         }
 
-
+        if(currentHealth == 0)
+        {
+            DeadText.SetActive(true);
+            teleport.TeleportToLevel1();
+        }
     }
 
     /// <summary>
@@ -269,6 +286,18 @@ public class SamplePlayer : MonoBehaviour
             batSettings.BatAttack();
 
         }
+        if (other.tag == "BossZone")
+        {
+            BossAnimation.SetBool("SkeletonSensePlayer", true);
+
+        }
+        if (other.tag == "Incubator")
+        {
+            ChangeQuestText.done4();
+            Incubator.SetActive(false);
+            
+        }
+
 
 
     }
@@ -285,12 +314,34 @@ public class SamplePlayer : MonoBehaviour
 
         }
 
+        if (other.tag == "BossZone")
+        {
+            randomMovement.StopRandomMovement();
+            Boss.SetDestination(Player.position);
+            
 
 
-        if (other.tag == "Bat" || other.tag == "Boss")
+        }
+
+
+
+        if (other.tag == "Bat")
         {
             TakeDamage(1);
         }
+
+        if (other.tag == "Boss" )
+        {
+            TakeDamage(2); 
+        }
+
+        if (other.tag == "Hp")
+        {
+            TakeDamage(-2);
+            Heart.SetActive(false);
+
+        }
+
     }
 
 

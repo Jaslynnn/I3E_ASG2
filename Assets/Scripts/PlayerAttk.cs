@@ -6,6 +6,7 @@ public class PlayerAttk : MonoBehaviour
     public float range;
     public Camera fpsCam;
     public Target target;
+    public ParticleSystem MuzzleFlash;
 
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class PlayerAttk : MonoBehaviour
 
     public void Shoot()
     {
+        MuzzleFlash.Play();
         RaycastHit hit;
 
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
@@ -37,6 +39,13 @@ public class PlayerAttk : MonoBehaviour
             if (hit.transform.tag == "Slime")
             {
                target.SlimeTakeDamage(damage);
+
+            }
+
+
+            if (hit.transform.tag == "Boss")
+            {
+                target.BossTakeDamage(damage);
 
             }
         }

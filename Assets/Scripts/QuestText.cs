@@ -8,7 +8,6 @@ public class QuestText : MonoBehaviour
     // Start is called before the first frame update
     public GameObject QuestingText1;
     public GameObject QuestingText2;
-    public GameObject QuestingText3;
     public GameObject QuestCountText;
 
     public int QuestCount;
@@ -17,7 +16,7 @@ public class QuestText : MonoBehaviour
     public string Status3;
     public string Status4;
     public string Status5;
-    public string Status6;
+
 
     //Bools to indicate levels
     public bool Level1;
@@ -27,6 +26,11 @@ public class QuestText : MonoBehaviour
     void Start()
     {
         Status1 = "Undone";
+        Status2 = "Undone";
+        Status3 = "Undone";
+        Status4 = "Undone";
+        Status5 = "Undone";
+
         FirstLevel();
     }
 
@@ -45,12 +49,11 @@ public class QuestText : MonoBehaviour
         {
             RetrieveIncubator();
             ShootBatQuest();
-            FindPortalQuest2();
         }
         //Level 3 Quest
         if (Level3 == true)
         {
-            KillBossQuest();
+            GetHeartQuest();
         }
 
         ChangeQuestingCount();
@@ -78,14 +81,33 @@ public class QuestText : MonoBehaviour
         Level1 = false;
     }
 
-    public void done3()
-    {
-        Status3 = "done";
-    }
+
     public void done1()
     {
         Status1 = "done";
+        QuestCount += 1;
     }
+    public void done2()
+    {
+        Status2 = "done";
+        QuestCount += 1;
+    }
+    public void done3()
+    {
+        Status3 = "done";
+        QuestCount += 1;
+    }
+    public void done4()
+    {
+        Status4 = "done";
+        QuestCount += 1;
+    }
+    public void done5()
+    {
+        Status5 = "done";
+        QuestCount += 1;
+    }
+
 
     //Level 1 quest
     public void ShootSlimeQuest()
@@ -112,22 +134,18 @@ public class QuestText : MonoBehaviour
 
     }
 
-    public void FindPortalQuest2()
-    {
-        QuestingText3.GetComponent<Text>().text = "Find a portal : " + Status5;
 
-
-    }
 
     //Level 3 quest
-    public void KillBossQuest()
+    public void GetHeartQuest()
     {
-        QuestingText1.GetComponent<Text>().text = "Kill the boss : " + Status6;
+        QuestingText1.GetComponent<Text>().text = "Get the Living Heart : " + Status5;
 
     }
+
     public void ChangeQuestingCount()
     {
-         QuestCountText.GetComponent<Text>().text = "These are your current number of quests : " + QuestCount;
+         QuestCountText.GetComponent<Text>().text = "These are the number of quests done : " + QuestCount;
 
     }
 }

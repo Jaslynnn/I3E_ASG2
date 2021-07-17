@@ -12,17 +12,16 @@ public class Teleportation : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Level1" )
-        {
-            TeleportToLevel1();
-        }
+
         if (other.tag == "Level2")
         {
             TeleportToLevel2();
+            ChangeQuestText.done2();
         }
         if (other.tag == "Level3")
         {
             TeleportToLevel3();
+    
         }
 
     }
@@ -30,14 +29,20 @@ public class Teleportation : MonoBehaviour
     //Functions that the buttons on the menu can activate when the player wants to change levels
     public void TeleportToLevel1()
     {
+        ChangeQuestText.FirstLevel();
         thePlayer.transform.position = Level1.transform.position;
+        
+
     }
     public void TeleportToLevel2()
     {
+        ChangeQuestText.SecondLevel();
+
         thePlayer.transform.position = Level2.transform.position;
     }
     public void TeleportToLevel3()
     {
+        ChangeQuestText.ThirdLevel();
         thePlayer.transform.position = Level3.transform.position;
     }
 
